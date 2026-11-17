@@ -1,0 +1,237 @@
+{
+  "evaluation_date": "2026-11-17",
+  "dataset": "CSE-CIC-IDS2018",
+  "dataset_source": "https://cse-cic-ids2018.s3.ca-central-1.amazonaws.com/Processed%20Traffic%20Data%20for%20ML%20Algorithms/Thursday-01-03-2018_TrafficForML_CICFlowMeter.csv",
+  "dataset_file": "Thursday-01-03-2018_TrafficForML_CICFlowMeter.csv",
+  "dataset_sha256": "b0534c5d7d8b41e03df71c6966c995d116a8ed28e61f377c8b14cdf5d28f4edf",
+  "raw_label_counts": {
+    "Benign": 238037,
+    "Infilteration": 93063,
+    "Label": 25
+  },
+  "preprocessing": {
+    "raw_rows": 331125,
+    "invalid_rows_dropped": 2944,
+    "valid_rows_before_deduplication": 328181,
+    "exact_duplicate_rows_dropped": 40154,
+    "rows_scored": 288027,
+    "label_mapping": {
+      "Benign": 0,
+      "other_nonempty_nonheader_labels": 1
+    },
+    "feature_count": 77,
+    "feature_mapping": {
+      "Destination Port": "Dst Port",
+      "Flow Duration": "Flow Duration",
+      "Total Fwd Packets": "Tot Fwd Pkts",
+      "Total Backward Packets": "Tot Bwd Pkts",
+      "Total Length of Fwd Packets": "TotLen Fwd Pkts",
+      "Total Length of Bwd Packets": "TotLen Bwd Pkts",
+      "Fwd Packet Length Max": "Fwd Pkt Len Max",
+      "Fwd Packet Length Min": "Fwd Pkt Len Min",
+      "Fwd Packet Length Mean": "Fwd Pkt Len Mean",
+      "Fwd Packet Length Std": "Fwd Pkt Len Std",
+      "Bwd Packet Length Max": "Bwd Pkt Len Max",
+      "Bwd Packet Length Min": "Bwd Pkt Len Min",
+      "Bwd Packet Length Mean": "Bwd Pkt Len Mean",
+      "Bwd Packet Length Std": "Bwd Pkt Len Std",
+      "Flow Bytes/s": "Flow Byts/s",
+      "Flow Packets/s": "Flow Pkts/s",
+      "Flow IAT Mean": "Flow IAT Mean",
+      "Flow IAT Std": "Flow IAT Std",
+      "Flow IAT Max": "Flow IAT Max",
+      "Flow IAT Min": "Flow IAT Min",
+      "Fwd IAT Total": "Fwd IAT Tot",
+      "Fwd IAT Mean": "Fwd IAT Mean",
+      "Fwd IAT Std": "Fwd IAT Std",
+      "Fwd IAT Max": "Fwd IAT Max",
+      "Fwd IAT Min": "Fwd IAT Min",
+      "Bwd IAT Total": "Bwd IAT Tot",
+      "Bwd IAT Mean": "Bwd IAT Mean",
+      "Bwd IAT Std": "Bwd IAT Std",
+      "Bwd IAT Max": "Bwd IAT Max",
+      "Bwd IAT Min": "Bwd IAT Min",
+      "Fwd PSH Flags": "Fwd PSH Flags",
+      "Bwd PSH Flags": "Bwd PSH Flags",
+      "Fwd URG Flags": "Fwd URG Flags",
+      "Bwd URG Flags": "Bwd URG Flags",
+      "Fwd Header Length": "Fwd Header Len",
+      "Bwd Header Length": "Bwd Header Len",
+      "Fwd Packets/s": "Fwd Pkts/s",
+      "Bwd Packets/s": "Bwd Pkts/s",
+      "Min Packet Length": "Pkt Len Min",
+      "Max Packet Length": "Pkt Len Max",
+      "Packet Length Mean": "Pkt Len Mean",
+      "Packet Length Std": "Pkt Len Std",
+      "Packet Length Variance": "Pkt Len Var",
+      "FIN Flag Count": "FIN Flag Cnt",
+      "SYN Flag Count": "SYN Flag Cnt",
+      "RST Flag Count": "RST Flag Cnt",
+      "PSH Flag Count": "PSH Flag Cnt",
+      "ACK Flag Count": "ACK Flag Cnt",
+      "URG Flag Count": "URG Flag Cnt",
+      "CWE Flag Count": "CWE Flag Count",
+      "ECE Flag Count": "ECE Flag Cnt",
+      "Down/Up Ratio": "Down/Up Ratio",
+      "Average Packet Size": "Pkt Size Avg",
+      "Avg Fwd Segment Size": "Fwd Seg Size Avg",
+      "Avg Bwd Segment Size": "Bwd Seg Size Avg",
+      "Fwd Avg Bytes/Bulk": "Fwd Byts/b Avg",
+      "Fwd Avg Packets/Bulk": "Fwd Pkts/b Avg",
+      "Fwd Avg Bulk Rate": "Fwd Blk Rate Avg",
+      "Bwd Avg Bytes/Bulk": "Bwd Byts/b Avg",
+      "Bwd Avg Packets/Bulk": "Bwd Pkts/b Avg",
+      "Bwd Avg Bulk Rate": "Bwd Blk Rate Avg",
+      "Subflow Fwd Packets": "Subflow Fwd Pkts",
+      "Subflow Fwd Bytes": "Subflow Fwd Byts",
+      "Subflow Bwd Packets": "Subflow Bwd Pkts",
+      "Subflow Bwd Bytes": "Subflow Bwd Byts",
+      "Init_Win_bytes_forward": "Init Fwd Win Byts",
+      "Init_Win_bytes_backward": "Init Bwd Win Byts",
+      "act_data_pkt_fwd": "Fwd Act Data Pkts",
+      "min_seg_size_forward": "Fwd Seg Size Min",
+      "Active Mean": "Active Mean",
+      "Active Std": "Active Std",
+      "Active Max": "Active Max",
+      "Active Min": "Active Min",
+      "Idle Mean": "Idle Mean",
+      "Idle Std": "Idle Std",
+      "Idle Max": "Idle Max",
+      "Idle Min": "Idle Min"
+    },
+    "scaler_refit": false,
+    "model_refit": false
+  },
+  "model": {
+    "artifact": "models/xgb_model.joblib",
+    "scaler": "models/scaler.joblib",
+    "xgboost_version": "3.4.1",
+    "objective": "binary:logistic",
+    "n_estimators": 100,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "classes": [
+      0,
+      1
+    ]
+  },
+  "decision_threshold": 0.5,
+  "class_counts_after_cleaning_before_deduplication": {
+    "benign": 235778,
+    "attack": 92403
+  },
+  "class_counts_scored": {
+    "benign": 205496,
+    "attack": 82531
+  },
+  "confusion_matrix_labels_actual_rows_predicted_columns": [
+    [
+      202093,
+      3403
+    ],
+    [
+      80144,
+      2387
+    ]
+  ],
+  "metrics": {
+    "accuracy": 0.7099334437396494,
+    "precision_attack": 0.41226252158894644,
+    "recall_attack": 0.02892246549781294,
+    "f1_attack": 0.05405283001777607,
+    "macro_f1": 0.44137811973257907,
+    "false_positive_rate": 0.016559933040059174,
+    "roc_auc": 0.5807441658558385,
+    "pr_auc_average_precision": 0.38968682923152814,
+    "brier_score_attack_probability": 0.2662656307220459
+  },
+  "threshold_sensitivity": [
+    {
+      "threshold": 0.05,
+      "attack_precision": 0.5051297957625501,
+      "attack_recall": 0.2565217918115617,
+      "false_positive_rate": 0.1009314049908514,
+      "tn": 184755,
+      "fp": 20741,
+      "fn": 61360,
+      "tp": 21171
+    },
+    {
+      "threshold": 0.1,
+      "attack_precision": 0.5869035842021155,
+      "attack_recall": 0.18689946807866134,
+      "false_positive_rate": 0.05283314517070892,
+      "tn": 194639,
+      "fp": 10857,
+      "fn": 67106,
+      "tp": 15425
+    },
+    {
+      "threshold": 0.25,
+      "attack_precision": 0.4392573513629534,
+      "attack_recall": 0.04959348608401692,
+      "false_positive_rate": 0.02542628566979406,
+      "tn": 200271,
+      "fp": 5225,
+      "fn": 78438,
+      "tp": 4093
+    },
+    {
+      "threshold": 0.5,
+      "attack_precision": 0.41226252158894644,
+      "attack_recall": 0.02892246549781294,
+      "false_positive_rate": 0.016559933040059174,
+      "tn": 202093,
+      "fp": 3403,
+      "fn": 80144,
+      "tp": 2387
+    },
+    {
+      "threshold": 0.75,
+      "attack_precision": 0.1511627906976744,
+      "attack_recall": 0.002047715403908834,
+      "false_positive_rate": 0.004618094756102309,
+      "tn": 204547,
+      "fp": 949,
+      "fn": 82362,
+      "tp": 169
+    },
+    {
+      "threshold": 0.95,
+      "attack_precision": 0.17313432835820897,
+      "attack_recall": 0.0007027662332941561,
+      "false_positive_rate": 0.0013479581111067855,
+      "tn": 205219,
+      "fp": 277,
+      "fn": 82473,
+      "tp": 58
+    }
+  ],
+  "per_class_report": {
+    "Benign": {
+      "precision": 0.7160400656186113,
+      "recall": 0.9834400669599408,
+      "f1-score": 0.8287034094473821,
+      "support": 205496.0
+    },
+    "Attack": {
+      "precision": 0.41226252158894644,
+      "recall": 0.02892246549781294,
+      "f1-score": 0.05405283001777607,
+      "support": 82531.0
+    },
+    "accuracy": 0.7099334437396494,
+    "macro avg": {
+      "precision": 0.5641512936037789,
+      "recall": 0.5061812662288768,
+      "f1-score": 0.44137811973257907,
+      "support": 288027.0
+    },
+    "weighted avg": {
+      "precision": 0.6289959187632392,
+      "recall": 0.7099334437396494,
+      "f1-score": 0.6067357224912814,
+      "support": 288027.0
+    }
+  }
+}

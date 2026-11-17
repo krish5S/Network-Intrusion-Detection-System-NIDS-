@@ -1,2 +1,28 @@
-data/
+# Python environments and generated files
 .venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Operating system and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Raw CICIDS captures and downloaded datasets (keep the small app demo sample)
+/data/*
+!/data/sample_test_traffic.csv
+
+# Generated examiner documents and reports
+*.doc
+*.docx
+*.pdf
+/REPORT.*
+
+# Local planning notes and credentials
+/WORK_PLAN.md
+/tickets/
+.streamlit/secrets.toml
